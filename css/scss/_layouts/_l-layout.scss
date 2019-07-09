@@ -1,0 +1,175 @@
+@import "_base/_bits";
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+#canvas { 
+    image-rendering: pixelated; 
+}
+nav {
+    padding-top: 50px;
+}
+.home-handler, .artist-handler {
+    margin-bottom: 30px;
+    width: 100%;
+    padding-top: 50px;
+    min-height: 200px;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    ul {
+        list-style-type: none;
+        margin: 0px 20px;
+        li {
+            margin-bottom: 20px;
+            a {
+                display: inline-block;
+                &:hover {
+                    -moz-transform: translateY(-1px);
+                    -ms-transform: translateY(-1px);
+                    -o-transform: translateY(-1px);
+                    -webkit-transform: translateY(-1px);
+                    transform: translateY(-1px);
+                    text-shadow: 0px 0px 0px $charcoal;
+                    -webkit-text-shadow: 0px 0px 0px $charcoal;
+                    -khtml-text-shadow: 0px 0px 0px $charcoal;
+                    -moz-text-shadow: 0px 0px 0px $charcoal;
+                }
+            }
+        }
+    }
+}
+
+form {
+    margin: 0px 20px;
+    .search-field {
+        display: flex;
+        flex-flow: column-reverse;
+        #search-artist, label {
+            transition: all 0.2s;
+            touch-action: manipulation;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        #search-artist {
+            max-width: 350px;
+            border-style: none;
+            background-color: white;
+            display: block;
+            margin-bottom: 10px;
+            height: 21px;
+            border-bottom: solid 1px $charcoal;
+            &::placeholder {
+                opacity: 0;
+                transition: inherit;
+            }
+            &:focus::placeholder {
+                opacity: 1;
+            }
+            &:placeholder-shown + label {
+                cursor: text;
+                max-width: 66.66%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transform-origin: left bottom;
+                transform: translate(0, 1.75rem);
+            }
+            &:focus + label {
+                transform: translate(0, 0);
+                cursor: pointer;
+            }
+        }
+    }
+    input[type=submit] {
+        border-style: none;
+        background-color: white;
+        display: block;
+        margin-bottom: 20px;
+        height: 21px;
+        &:hover {
+            @include hover;
+        }
+    }
+}
+
+.home-list, .artist-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    li {
+        &:hover {
+            @include hover;
+        }
+        margin: 0px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        img {
+            align-self: center;
+        }
+        h2 {
+            margin: 10px 0px;
+            display: block;
+            width: inherit;
+        }
+    }
+}
+
+.artist-details {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    .level {
+        background: white;
+        border-style: none;
+        &:hover {
+            @include hover;
+        }
+    }
+    hr {
+        margin: 10px 20px 10px 0px;
+        max-width: 400px;
+    }
+    .puzzle-prompt {
+        position: relative;
+        max-height: 95vh;
+        img {
+            display: block;
+            max-height: 95vh;
+        }
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: 0.5s ease;
+            background-color: rgba(255, 255, 255, 0.7);
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    h5 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    h2 {
+        margin: 10px 0px;
+    }
+}
+
+#return {
+    margin: 10px 0px 10px 20px;
+}

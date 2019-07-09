@@ -1,0 +1,71 @@
+//text colours
+$charcoal: #161c20;
+
+//font types
+@mixin main {
+    font-family: 'Playfair Display', serif;
+}
+
+//media queries
+$xtra-large:"screen and (min-width: 992px)";
+$large:"(min-width: 768px) and (max-width: 991px)";
+$medium:"(min-width: 600px) and (max-width: 767px)";
+$small:"(min-width: 480px) and (max-width: 599px)";
+$xtra-small:"only screen and (max-width: 479px)";
+
+@mixin XL {
+    @media #{$xtra-large} {
+        @content;
+    }
+}
+@mixin LG {
+    @media #{$large} {
+        @content;
+    }
+}
+@mixin MD {
+    @media #{$medium} {
+        @content;
+    }
+}
+@mixin SM {
+    @media #{$small} {
+        @content;
+    }
+}
+@mixin XS {
+    @media #{$xtra-small} {
+        @content;
+    }
+}
+
+//additional mixins
+@mixin boxShadow {
+    -o-box-shadow:0 5px 10px rgba(154,160,185,.05),
+                    0 10px 20px rgba(166,173,201,.2);
+
+    -ms-box-shadow:0 5px 10px rgba(154,160,185,.05),
+                    0 10px 20px rgba(166,173,201,.2);
+
+    -moz-box-shadow:0 5px 10px rgba(154,160,185,.05),
+                    0 10px 20px rgba(166,173,201,.2);
+
+    -webkit-box-shadow: 0 5px 10px rgba(154,160,185,.05),
+                        0 10px 20px rgba(166,173,201,.2);
+
+    box-shadow: 0 5px 10px rgba(154,160,185,.05),
+                0 10px 20px rgba(166,173,201,.2);
+}
+
+@mixin hover {
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+    text-shadow: 0px 0px 0px $charcoal;
+    -webkit-text-shadow: 0px 0px 0px $charcoal;
+    -o-text-shadow: 0px 0px 0px $charcoal;
+    -ms-text-shadow: 0px 0px 0px $charcoal;
+    -moz-text-shadow: 0px 0px 0px $charcoal;
+}
